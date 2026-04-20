@@ -1,8 +1,8 @@
 class Parlay < Formula
   desc "Intent-driven specification framework"
   homepage "https://github.com/ddwht/parlay"
-  url "https://github.com/ddwht/parlay/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "3128adee6af5f163fa6bb94d6182d84dcf9f2ada78bcf1dd4191b786ae4ca3cc"
+  url "https://github.com/ddwht/parlay/archive/refs/tags/v0.1.10.tar.gz"
+  sha256 "7f880136d57b85b292f73a027a89f73d50ff03762072d44a291976b73e99a19e"
   license "MIT"
 
   depends_on "go" => :build
