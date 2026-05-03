@@ -13,7 +13,7 @@ class Parlay < Formula
       -X main.version=#{version}
       -X main.commit=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd/parlay"
+    system "go", "build", *std_go_args(ldflags:), "./core/cmd/parlay"
   end
 
   test do
