@@ -1,34 +1,26 @@
 class ParlayStudio < Formula
-    desc "Parlay Studio — designer-facing extension to parlay (Domain Model Editor, Design Loop)"
-    homepage "https://github.com/<user>/parlay"
-    version "0.1.0"
+  desc "Parlay Studio — designer-facing extension to parlay (Domain Model Editor, Design Loop skill)"
+  homepage "https://github.com/ddwht/parlay"
+  url "https://github.com/ddwht/parlay/archive/refs/tags/studio-v0.1.0.tar.gz"
+  version "0.1.0"
+  sha256 "b5754581ad04670230e853f95bab8b469d432e0cf02017d4a7c9c3bf37198f0c"
+  license "MIT"
 
-    if OS.mac? && Hardware::CPU.arm?
-      url
-  "https://github.com/<user>/parlay/releases/download/studio-v#{version}/parlay-studio-darwin-arm64.tar.gz"
-      sha256 "<paste-from-release-artifact>"
-    elsif OS.mac? && Hardware::CPU.intel?
-      url
-  "https://github.com/<user>/parlay/releases/download/studio-v#{version}/parlay-studio-darwin-amd64.tar.gz"
-      sha256 "<paste-from-release-artifact>"
-    elsif OS.linux? && Hardware::CPU.arm?
-      url
-  "https://github.com/<user>/parlay/releases/download/studio-v#{version}/parlay-studio-linux-arm64.tar.gz"
-      sha256 "<paste-from-release-artifact>"
-    else
-      url
-  "https://github.com/<user>/parlay/releases/download/studio-v#{version}/parlay-studio-linux-amd64.tar.gz"
-      sha256 "<paste-from-release-artifact>"
-    end
+  depends_on "go" => :build
+  depends_on "parlay"
 
-    depends_on "parlay"  # parlay-studio is an extension; parlay must be installed first
-
-    def install
-      bin.install "parlay-studio"
-    end
-
-    test do
-      # binary loads + exits non-zero without a project (which is correct behavior)
-      assert_match "studio-config", shell_output("#{bin}/parlay-studio --project /nonexistent 2>&1", 1)
+  def install
+    cd "studio" do
+      ldflags = %W[
+        -s -w
+        -X main.version=#{version}
+        -X main.commit=#{tap.user}
+      ]
+      system "go", "build", *std_go_args(ldflags:), "./cmd/parlay-studio"
     end
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/parlay-studio version")
+  end
+end
