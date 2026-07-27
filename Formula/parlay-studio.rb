@@ -1,9 +1,9 @@
 class ParlayStudio < Formula
   desc "Parlay Studio — designer-facing extension to parlay (Domain Model Editor, Design Loop skill)"
   homepage "https://github.com/ddwht/parlay"
-  url "https://github.com/ddwht/parlay/archive/refs/tags/studio-v0.1.1.tar.gz"
-  version "0.1.1"
-  sha256 "1ce90813d2b24021015896c854dc9dbfa7856fb98cea4d786ac68e6e8ac440c5"
+  url "https://github.com/ddwht/parlay/archive/refs/tags/studio-v0.1.2.tar.gz"
+  version "0.1.2"
+  sha256 "7589ff4cd06901809f54ead1683c80b53c0509cd141a0eba0606a7847018463f"
   license "MIT"
 
   depends_on "go" => :build
