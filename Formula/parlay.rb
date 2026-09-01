@@ -5,21 +5,21 @@
 class Parlay < Formula
   desc "Intent-driven specification framework"
   homepage "https://github.com/ddwht/parlay"
-  version "0.7.0"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ddwht/parlay/releases/download/v0.7.0/parlay_Darwin_x86_64.tar.gz"
-      sha256 "c0f6ad23464c1fdd7e9681e55820e3d393398dbdbaf4fa77c61c7a89332c7ef9"
+      url "https://github.com/ddwht/parlay/releases/download/v0.8.0/parlay_Darwin_x86_64.tar.gz"
+      sha256 "af21511cf4cfd3fe9ecde7cf9dce57290835a760a5604846c9a96314bd5731dc"
 
       define_method(:install) do
         bin.install "parlay"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ddwht/parlay/releases/download/v0.7.0/parlay_Darwin_arm64.tar.gz"
-      sha256 "8dc83b6700fc8ac7008458abbb230dd63db9c8afa97c688ec92b1392616bfe55"
+      url "https://github.com/ddwht/parlay/releases/download/v0.8.0/parlay_Darwin_arm64.tar.gz"
+      sha256 "38de681d456705c2aa25bf71b9496def476f5fa8e2bd9e2a68e2eb7a05a6e874"
 
       define_method(:install) do
         bin.install "parlay"
@@ -29,15 +29,15 @@ class Parlay < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ddwht/parlay/releases/download/v0.7.0/parlay_Linux_x86_64.tar.gz"
-      sha256 "b18d610e133d0d86b90703310b2a32dd9be0fb30e860b0d3e24a199ae045b96e"
+      url "https://github.com/ddwht/parlay/releases/download/v0.8.0/parlay_Linux_x86_64.tar.gz"
+      sha256 "f0d1dd850746ff876c9b5410c75fc11ac24fade2bff114a97d3771b91c9ef093"
       define_method(:install) do
         bin.install "parlay"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ddwht/parlay/releases/download/v0.7.0/parlay_Linux_arm64.tar.gz"
-      sha256 "103af8ad3c015ad78e0effb466cfc198c9b6d7fba2716a6fc2e8215a795bdbb9"
+      url "https://github.com/ddwht/parlay/releases/download/v0.8.0/parlay_Linux_arm64.tar.gz"
+      sha256 "f1ffcb2ae67d0d5e2ba786dee12886692e21b02bff6a7c935609b5d697eb2e4a"
       define_method(:install) do
         bin.install "parlay"
       end
